@@ -198,3 +198,6 @@ section {
     box-shadow: 0 0 20px var(--main-color);
 }
 
+@media screen and (max-width: 767px) {
+    
+}
