@@ -171,3 +171,27 @@ section {
     color: var(--bg-color);
     box-shadow: 0 0 20px var(--main-color);
 }
+
+/* Mobile (handphone) */
+@media only screen and (max-width: 600px) {
+    /* Let's assume that you want to make the h1 font size smaller for mobile devices */
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Tablet */
+  @media only screen and (min-width: 600px) and (max-width: 960px) {
+    /* Let's assume that you want to make the h1 font size larger for tablet devices */
+    h1 {
+      font-size: 3rem;
+    }
+  }
+  
+  /* Desktop */
+  @media only screen and (min-width: 960px) {
+    /* Let's assume that you want to make the h1 font size even larger for desktop devices */
+    h1 {
+      font-size: 4.5rem;
+    }
+  }
