@@ -171,36 +171,3 @@ section {
     color: var(--bg-color);
     box-shadow: 0 0 20px var(--main-color);
 }
-
-@media only screen and (min-width: 600px) and (max-width: 991px) {
-    header {
-        padding: 20px 10%; /* Adjusted padding for tablets */
-    }
-
-    .logo {
-        font-size: 28px; /* Adjusted font size for tablets */
-    }
-
-    .navlist a {
-        font-size: 16px; /* Adjusted font size for tablets */
-        margin-left: 20px; /* Adjusted margin for tablets */
-    }
-
-    /* ... (Other styles for tablets) */
-}
-
-/* Media Queries for Smartphone */
-@media only screen and (max-width: 599px) {
-    header {
-        padding: 15px 5%; /* Adjusted padding for smartphones */
-    }
-
-    .logo {
-        font-size: 22px; /* Adjusted font size for smartphones */
-    }
-
-    .navlist a {
-        font-size: 14px; /* Adjusted font size for smartphones */
-        margin-left: 10px; /* Adjusted margin for smartphones */
-    }
-}
