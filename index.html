@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth focus:scroll-auto>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,24 +15,31 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
+     <!-- Sticky Top Bar -->
+  <div class="sticky top-0 bg-white shadow-md z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-3">
+        <a href="#home" class="text-blue-500 font-semibold">Home</a>
+        <a href="#about" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">About</a>
+        <a href="#location" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Location</a>
+        <a href="#article" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Article</a>
+        <a href="#weather" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Weather</a>
+        <a href="#disaster-updates" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Disaster Updates</a>
+        <a href="#contact" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Contact</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Navigation -->
   <nav class="bg-white shadow-lg">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between">
         <div class="flex space-x-7">
           <div>
+            <!-- Logo and Brand Name -->
             <a href="#" class="flex items-center py-4 px-2">
               <span class="font-semibold text-gray-500 text-lg">GajahWong</span>
             </a>
-          </div>
-          <div class="hidden md:flex items-center space-x-1">
-            <a href="#home" class="py-4 px-2 text-gray-700 border-b-4 border-blue-500 font-semibold ">Home</a>
-            <a href="#about" class="py-4 px-2 text-gray-500 font-semibold hover:text-gray-700 transition duration-300">About</a>
-            <a href="#location" class="py-4 px-2 text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Lokasi</a>
-            <a href="#article" class="py-4 px-2 text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Artikel</a>
-            <a href="#weather" class="py-4 px-2 text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Cuaca</a>
-            <a href="#disaster-updates" class="py-4 px-2 text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Update Bencana</a>
-            <a href="#contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Kontak Kami</a>
           </div>
         </div>
       </div>
@@ -42,7 +49,7 @@
   <!-- Home Section -->
   <section id="home" class="bg-blue-500 text-white py-20">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-2 text-center">Selamat Datang Di Komunitas GajahWong</h2>
+      <h2 class="text-4xl font-bold mb-2 text-center">Welcome to Our Community</h2>
       <h3 class="text-2xl mb-8 text-center">Connecting people through shared interests and ideas</h3>
     </div>
   </section>
