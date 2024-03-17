@@ -6,11 +6,57 @@
   <title>GajahWong</title>
   <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
+    }
+  </style>
+
+  <!-- CSS -->
+  <style>
+    /* Hide the navigation menu by default */
+    .nav {
+      display: none;
+    }
+  
+    /* Style the hamburger menu */
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      color: #333;
+      padding: 10px;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+  
+    /* Change the style of the hamburger menu when clicked */
+    .hamburger.active {
+      transform: rotate(180deg);
+    }
+  
+    /* Style the navigation menu when it's displayed */
+    .nav.active {
+      display: block;
+    }
+  
+    /* Style the navigation links */
+    .nav a {
+      display: block;
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+  
+    /* Style the navigation links when they're hovered */
+    .nav a:hover {
+      background-color: #f2f2f2;
     }
   </style>
 </head>
@@ -34,18 +80,39 @@
   <!-- Navigation -->
   <nav class="bg-white shadow-lg">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between">
-        <div class="flex space-x-7">
-          <div>
-            <!-- Logo and Brand Name -->
-            <a href="#" class="flex items-center py-4 px-2">
-              <span class="font-semibold text-gray-500 text-lg">GajahWong</span>
-            </a>
-          </div>
+      <div class="flex items-center">
+        <!-- Logo and Brand Name -->
+        <a href="#" class="flex items-center py-4 px-2">
+          <span class="font-semibold text-gray-500text-lg">GajahWong</span>
+        </a>
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+          <i class="ph ph-list"></i>
         </div>
+      </div>
+      <!-- Navigation Menu -->
+      <div class="nav" id="nav">
+        <a href="#home" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Home</a>
+        <a href="#about" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">About</a>
+        <a href="#location" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Lokasi</a>
+        <a href="#article" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Artikel</a>
+        <a href="#weather" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Cuaca</a>
+        <a href="#disaster-updates" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Update Bencana</a>
+        <a href="#contact" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Kontak Kami</a>
       </div>
     </div>
   </nav>
+
+  <!-- Java Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+  
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+  </script>
 
   <!-- Home Section -->
   <section id="home" class="bg-blue-500 text-white py-20">
