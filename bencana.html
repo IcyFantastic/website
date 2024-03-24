@@ -77,12 +77,12 @@
       </div>
       <!-- Navigation Menu -->
       <div class="nav" id="nav">
-        <a href="index.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Home</a>
+        <a href="home.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Home</a>
         <a href="lokasi.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Lokasi</a>
         <a href="artikel.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Artikel</a>
         <a href="cuaca.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Cuaca</a>
         <a href="bencana.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Update Bencana</a>
-        <a href="#contact" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Kontak Kami</a>
+        <a href="kontak.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Kontak Kami</a>
       </div>
       <div id="id956fc0ca81391" a='{"t":"g7bs","v":"1.2","lang":"id","locs":[1667],"ssot":"c","sics":"ds","cbkg":"rgba(255,255,255,0)","cfnt":"rgb(0,0,0)","cend":"rgba(0,0,0,0)"}'>Sumber Data Cuaca: <a href="https://cuacalab.id/cuaca_yogyakarta/3_hari/">https://cuacalab.id/cuaca_yogyakarta/3_hari/</a></div>
     </div>
@@ -101,6 +101,7 @@
 
   <script async src="https://static1.cuacalab.id/widgetjs/?id=id956fc0ca81391"></script>
 
+
   <!-- Home Section -->
   <section id="home" class="bg-blue-500 text-white py-20">
     <div class="container mx-auto px-6">
@@ -113,11 +114,55 @@
   <section id="disaster-updates" class="py-20">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Update Bencana</h2>
-      <p class="text-gray-600 text-center mb-8">Important alerts and updates regarding natural disasters or emergencies.</p>
-      <!-- Updates and alerts can be added here -->
+      <div id="disaster-list" class="text-gray-600 text-center mb-8">
+        <!-- Data bencana akan dimuat di sini -->
+      </div>
     </div>
   </section>
 
+  <script>
+    // Ambil data bencana dari sumber daya eksternal
+    async function fetchDisasterData() {
+      try {
+        // Ganti URL berikut dengan URL sumber daya yang sesuai
+        const response = await fetch('https://dibi.bnpb.go.id/');
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Gagal mengambil data bencana:', error);
+        return null;
+      }
+    }
+  
+    // Tampilkan data bencana di dalam elemen HTML
+    async function displayDisasterData() {
+      const disasterListElem = document.getElementById('disaster-list');
+      const data = await fetchDisasterData();
+  
+      if (data && data.length > 0) {
+        // Buat daftar bencana
+        const disasterList = document.createElement('ul');
+  
+        // Loop melalui data bencana dan tambahkan ke daftar
+        data.forEach(disaster => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${disaster.title} - ${disaster.date}`;
+          disasterList.appendChild(listItem);
+        });
+  
+        // Bersihkan elemen sebelumnya dan tambahkan daftar baru
+        disasterListElem.innerHTML = '';
+        disasterListElem.appendChild(disasterList);
+      } else {
+        // Tampilkan pesan jika tidak ada data bencana
+        disasterListElem.textContent = 'Tidak ada informasi bencana yang tersedia saat ini.';
+      }
+    }
+  
+    // Panggil fungsi untuk menampilkan data bencana saat halaman dimuat
+    displayDisasterData();
+  </script>
+  
   <!-- Footer -->
   <footer class="bg-white">
     <div class="container mx-auto px-6 py-4">
