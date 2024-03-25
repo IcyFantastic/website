@@ -58,17 +58,78 @@
     .nav a:hover {
       background-color: #f2f2f2;
     }
+
+    /* Desktop Navbar */
+    .desktop-nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      z-index: 999;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+
+    /* Mobile Navbar */
+    .mobile-nav {
+      display: none;
+    }
+
+    /* CSS for smaller screens (max-width: 768px) */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: block;
+      }
+
+      .mobile-nav.sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      }
+    }
+
   </style>
 </head>
+
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Navigation -->
-  <nav class="bg-white shadow-lg">
+  <!-- Navigation for Desktop -->
+  <nav class="desktop-nav bg-white shadow-lg">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-center">
         <!-- Logo and Brand Name -->
         <a href="#" class="flex items-center py-4 px-2">
-          <span class="font-semibold text-gray-500text-lg">GajahWong</span>
+          <span class="font-semibold text-gray-500 text-lg">GajahWong</span>
+        </a>
+        <!-- Sticky Top Bar -->
+        <div class="max-w-6xl mx-auto px-2">
+        <div class="flex justify-between items-center py-3">
+          <a href="index.html" class="text-blue-500 font-semibold mr-12">Home</a>
+          <a href="lokasi.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300 mr-12">Lokasi</a>
+          <a href="artikel.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300 mr-12">Artikel</a>
+          <a href="cuaca.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300 mr-12">Cuaca</a>
+          <a href="bencana.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300 mr-12">Update Bencana</a>
+          <a href="kontak.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300 mr-12">Kontak Kami</a>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navigation for Mobile -->
+  <nav class="mobile-nav bg-white shadow-lg" id="mobileNav">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center">
+        <!-- Logo and Brand Name -->
+        <a href="index.html" class="flex items-center py-4 px-2">
+          <span class="font-semibold text-gray-500 text-lg">GajahWong</span>
         </a>
         <!-- Hamburger Menu -->
         <div class="hamburger" id="hamburger">
@@ -84,12 +145,12 @@
         <a href="bencana.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Update Bencana</a>
         <a href="kontak.html" class="text-gray-500 font-semibold hover:text-gray-700 transition duration-300">Kontak Kami</a>
       </div>
-      <div id="id956fc0ca81391" a='{"t":"g7bs","v":"1.2","lang":"id","locs":[1667],"ssot":"c","sics":"ds","cbkg":"rgba(255,255,255,0)","cfnt":"rgb(0,0,0)","cend":"rgba(0,0,0,0)"}'>Sumber Data Cuaca: <a href="https://cuacalab.id/cuaca_yogyakarta/3_hari/">https://cuacalab.id/cuaca_yogyakarta/3_hari/</a></div>
     </div>
   </nav>
 
   <!-- Java Script -->
   <script>
+    const mobileNav = document.getElementById('mobileNav');
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
   
@@ -97,6 +158,17 @@
       hamburger.classList.toggle('active');
       nav.classList.toggle('active');
     });
+
+    window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 767) {
+      if (window.scrollY > 0) {
+        mobileNav.classList.add('sticky');
+      } else {
+        mobileNav.classList.remove('sticky');
+      }
+    }
+  });
+
   </script>
 
   <!--Cuaca Java Script-->
@@ -125,6 +197,7 @@
 
   <!-- Footer -->
   <footer class="bg-white">
+    <div id="id956fc0ca81391" a='{"t":"g7bs","v":"1.2","lang":"id","locs":[1667],"ssot":"c","sics":"ds","cbkg":"rgba(255,255,255,0)","cfnt":"rgb(0,0,0)","cend":"rgba(0,0,0,0)"}'>Sumber Data Cuaca: <a href="https://cuacalab.id/cuaca_yogyakarta/3_hari/">https://cuacalab.id/cuaca_yogyakarta/3_hari/</a></div>
     <div class="container mx-auto px-6 py-4">
       <div class="flex justify-between items-center">
         <p class="text-gray-500 text-sm">© 2024 GajahWong. All rights reserved.</p>
