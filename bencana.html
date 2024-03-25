@@ -197,7 +197,7 @@
     async function fetchDisasterData() {
       try {
         // Ganti URL berikut dengan URL sumber daya yang sesuai
-        const response = await fetch('https://dibi.bnpb.go.id/');
+        const response = await fetch('https://petabencana.id/map/Daerah%20Istimewa%20Yogyakarta');
         const data = await response.json();
         return data;
       } catch (error) {
